@@ -1,0 +1,29 @@
+﻿@model Library.Model.Category
+@{
+    ViewBag.Title = "افزودن دسته بندی";
+}
+
+            @if (TempData["Message"] != null)
+            {
+                <div id="Message" class="col-md-12">
+                    <div class="alert alert-success text-center">
+                        <h2>@TempData["Message"]</h2>
+                    </div>
+                </div>
+            }
+            <form method="post" class="form-horizontal">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="control-label" for="Category_Name">نام دسته</label>
+                        <input type="text" name="Category_Name" id="Category_Name" class="form-control" placeholder="نام دسته" />
+                    </div>
+
+                </div>
+                <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-success btn-block">
+                        <span class="glyphicon glyphicon-save"></span>
+                        ثبت
+                    </button>
+                </div>
+            </form>
+

@@ -17,5 +17,7 @@ namespace Library.Model
         [MaxLength(100),Required]
         public string Publisher { get; set; }
         public Member Member_I { get; set; }
+        public List<Category> Category_I { get; set; }
+        public int CategoryId { get; set; }
     }
 }

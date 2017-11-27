@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Library.Model.Member>
+@{
+    ViewBag.Title = "لیست اعضا";
+}
+
+
+<h2>لیست اعضا</h2>
+
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>شماره اعضا</th>
+            <th>نام عضو</th>
+            <th>نام خانوادگی عضو</th>
+            <th>نام کاربری عضو</th>
+            <th>آدرس ایمیل عضو</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@member.Id</td>
+                <td>@member.Name</td>
+                <td>@member.LastName</td>
+                <td>@member.UserName</td>
+                <td>@member.Email</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
