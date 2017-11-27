@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>کتابخانه ایرانیان | @ViewBag.Title</title>
+    <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">مدیریت کتابخانه</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="http://localhost:9099/Home/Index">خانه</a></li>
+                <li><a href="#">کتابها</a></li>
+                <li><a href="#">ارتباط با ما</a></li>
+                <li><a href="http://localhost:9099/Registering/Register">ثبت نام</a></li>
+                <li><a href="#">ورود</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/bootstrap-rtl.min.js"></script>
+    <script src="~/Scripts/Library.js"></script>
+</body>
+</html>
