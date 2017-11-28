@@ -3,17 +3,31 @@
     ViewBag.Title = "لیست اعضا";
 }
 
+@if (TempData["Message"] != null)
+            {
+    <div id="Message" class="col-md-12">
+        <div class="alert alert-success text-center">
+            <h2>@TempData["Message"]</h2>
+        </div>
+    </div>
+}
 
 <h2>لیست اعضا</h2>
-
+<div class="row">
+    <div style="margin:10px;" class="col-md-2">
+        <a href="http://localhost:9099/Admin/AddMember" class="btn btn-info btn-block">
+            افزودن عضو
+        </a>
+    </div>
+</div>
 <table class="table table-hover table-bordered table-striped">
     <thead>
         <tr>
             <th>شماره اعضا</th>
-            <th>نام عضو</th>
-            <th>نام خانوادگی عضو</th>
-            <th>نام کاربری عضو</th>
-            <th>آدرس ایمیل عضو</th>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>نام کاربری</th>
+            <th>آدرس ایمیل</th>
         </tr>
     </thead>
     <tbody>

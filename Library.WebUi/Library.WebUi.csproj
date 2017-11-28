@@ -171,6 +171,10 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Books_List.cshtml" />
+    <Content Include="Views\Admin\AddMember.cshtml" />
+    <Content Include="Views\Admin\Sirculation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
