@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Model.Toolsbox;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,8 +20,21 @@ namespace Library.Model
         public string Email { get; set; }
         [MaxLength(50),Required, Index(IsUnique =true)]
         public string UserName { get; set; }
-        [MaxLength(100)]
+        [NotMapped,ScaffoldColumn(true)]
+        public string Password
+        {
+            get
+            {
+                return this.PasswordHash;
+            }
+            set
+            {
+                this.PasswordHash = UserHelper.CalculateMD5Hash(value);
+            }
+        }
+        [MaxLength(100),ScaffoldColumn(false)]
         public string PasswordHash { get; set; }
         public List<Books> Book_I { get; set; }
+        public List<Circulations> Circulation_I { get; set; }
     }
 }

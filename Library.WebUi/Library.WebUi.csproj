@@ -160,12 +160,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CirculationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibraryDbs.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisteringController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToolBox\AuthenticateFunction.cs" />
+    <Compile Include="ToolBox\AuthorizeAttribute.cs" />
+    <Compile Include="ViewModels\ForLoginViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -175,6 +181,13 @@
     <Content Include="Views\Admin\Books_List.cshtml" />
     <Content Include="Views\Admin\AddMember.cshtml" />
     <Content Include="Views\Admin\Sirculation.cshtml" />
+    <Content Include="Views\Circulations\Create.cshtml" />
+    <Content Include="Views\Circulations\Delete.cshtml" />
+    <Content Include="Views\Circulations\Details.cshtml" />
+    <Content Include="Views\Circulations\Edit.cshtml" />
+    <Content Include="Views\Circulations\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Admin\Admin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

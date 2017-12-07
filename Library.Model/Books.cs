@@ -19,5 +19,6 @@ namespace Library.Model
         public Member Member_I { get; set; }
         public List<Category> Category_I { get; set; }
         public int CategoryId { get; set; }
+        public List<Circulations> Circulatin_I { get; set; }
     }
 }
