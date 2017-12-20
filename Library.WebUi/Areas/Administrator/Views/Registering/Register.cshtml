@@ -1,0 +1,51 @@
+﻿@model Library.Model.Member
+@{
+    ViewBag.Title = "ثبت نام";
+}
+
+    <style>
+        .form-horizontal > div{margin:5px;}
+        .form-horizontal > div > input {
+            margin: 5px;
+        }
+    </style>
+<div class="panel-heading">
+    <h3 class="panel-title">افزودن کاربر جدید</h3>
+</div>
+<div class="panel-body">
+    <form method="post" class="form-horizontal">
+
+            <div>
+                <label class="control-label" for="Name">نام*</label>
+                <input type="text" name="Name" id="Name" class="form-control" placeholder="نام" />
+            </div>
+
+            <div>
+                <label class="control-label" for="LastName">نام خانوادگی</label>
+                <input type="text" name="LastName" id="LastName" class="form-control" placeholder="نام خانوادگی" />
+            </div>
+
+            <div>
+                <label class="control-label" for="UserName">نام کاربری*</label>
+                <input type="text" name="UserName" id="UserName" class="form-control" placeholder="نام کاربری" />
+            </div>
+
+
+            <div>
+                <label class="control-label" for="Email">ایمیل*</label>
+                <input type="text" name="Email" id="Email" class="form-control" placeholder="ایمیل" />
+            </div>
+
+
+            <div>
+                <label class="control-label" for="Password">رمز عبور*</label>
+                <input type="password" name="Password" id="Password" class="form-control" placeholder="رمز عبور" />
+            </div>
+        <div>
+            <button type="submit" class="btn btn-success">
+                <span class="glyphicon glyphicon-save"></span>
+                ثبت
+            </button>
+        </div>
+    </form>
+</div>

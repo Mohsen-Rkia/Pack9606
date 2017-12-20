@@ -1,0 +1,25 @@
+﻿@model Library.Model.Circulation
+@{
+    ViewBag.Title = "حذف";
+}
+
+<div class="panel-heading">
+    <h3 class="panel-title">حذف کتاب</h3>
+</div>
+<div class="panel-body">
+    <h3>آیا از حذف این گردش اطمینان دارید ؟</h3>
+
+
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            <span class="btn btn-primary">@Html.ActionLink("بازگشت", "CirculationsHome")</span>
+        </div>
+    }
+</div>
+

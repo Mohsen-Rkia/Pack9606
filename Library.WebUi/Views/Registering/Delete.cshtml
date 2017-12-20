@@ -1,0 +1,26 @@
+﻿@model Library.Model.Member
+
+@{
+    ViewBag.Title = "حذف";
+}
+
+<h2>حذف</h2>
+
+<h3>آیا از حذف این عضو اطمینان دارید</h3>
+<div>
+    <hr />
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            <span class="btn btn-primary">@Html.ActionLink("بازگشت", "Members_List" , "Admin")</span>
+
+        </div>
+    }
+</div>
+
+

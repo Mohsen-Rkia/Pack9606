@@ -1,0 +1,28 @@
+﻿@model Library.WebUi.Areas.Administrator.ViewModels.AddBooksViewModels
+
+@{
+    ViewBag.Title = "حذف";
+}
+
+<div class="panel-heading">
+    <h3 class="panel-title">حذف کتاب</h3>
+</div>
+
+
+<h3>آیا از حذف کتاب @Model.Title اطمینان دارید ؟</h3>
+<div class="panel-body">
+
+        <hr />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="حذف" class="btn btn-default" /> |
+                <span class="btn btn-primary">@Html.ActionLink("بازگشت", "Books_List")</span>
+
+            </div>
+        }
+</div>
+   

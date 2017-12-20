@@ -7,6 +7,8 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using System.Threading;
+using GSD.Globalization;
 
 namespace Library.WebUi
 {
@@ -18,6 +20,12 @@ namespace Library.WebUi
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
+        }
+        protected void Application_BeginRequest(object sender, EventArgs e) //PersianCulture برای استفاده از کلاس 
+        {
+            var persianCulture = new PersianCulture();
+            Thread.CurrentThread.CurrentCulture = persianCulture;
+            Thread.CurrentThread.CurrentUICulture = persianCulture;
         }
     }
 }

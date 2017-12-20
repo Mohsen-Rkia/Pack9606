@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتابخانه ایرانیان | @ViewBag.Title</title>
+    <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","AdministratorHome")">مدیریت کتابخانه</a>
+            </div>
+        </div>
+    </nav> 
+
+    <div class="container-fluid" style="margin-top: 80px;direction:rtl;">
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <span class="glyphicon glyphicon-folder-close">
+                                    </span>مدیریت
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <ul class="list-group">
+                                <li class="list-group-item"><span class="glyphicon glyphicon-flash text-info"></span><a href="@Url.Action("Index","AdministratorHome")">داشبورد</a></li>
+                                <li class="list-group-item">
+                                    <span class="glyphicon glyphicon-flash text-primary"></span>کتاب
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span><a href="@Url.Action("AddBook", "AddBook", new { Area = "Administrator" })">افزودن کتاب</a></li>
+                                        <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("Books_List", "AddBook", new { Area = "Administrator" })">لیست کتابها</a></li>
+                                        <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("Index", "AddCirculations", new { Area = "Administrator" })">گردش کتاب</a></li>
+                                        <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("CirculationsHome", "AddCirculations", new { Area = "Administrator" })">لیست گردش ها</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="glyphicon glyphicon-flash text-primary"></span>دسته ها
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-success"></span><a href="@Url.Action("AddCategory", "Admin", new { Area = "Administrator" })">افزودن دسته</a></li>
+                                        <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("Category_List", "Admin", new { Area = "Administrator" })">لیست دسته ها</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <span class="glyphicon glyphicon-pencil text-primary"></span>کاربران
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span><a href="@Url.Action("Register", "Registering", new { Area = "Administrator" })">افزودن کاربر</a></li>
+                                        <li class="list-group-item"><span class="glyphicon glyphicon-flash text-primary"></span><a href="@Url.Action("Members_List", "Admin", new { Area = "Administrator" })">لیست کاربران</a></li>
+
+                                    </ul>
+                                </li>
+                                <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="@Url.Action("Index", "ContactUs", new { Area = "Administrator" })">پیام های دریافتی</a></li>
+                                <li class="list-group-item"><span class="glyphicon glyphicon-flash text-info"></span><a href="http://fb.com/moinakbarali">کتاب های درخواست شده</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-9">
+                <div class="panel panel-default">
+                    @RenderBody()
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+
+
+@if (TempData["Message"] != null)
+            {
+    <div id="Message" class="messagebox">
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="text-center">
+                @TempData["Message"]
+            </div>
+        </div>
+    </div>
+}
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/bootstrap-rtl.min.js"></script>
+    <script src="~/Scripts/Library.js"></script>
+</body>
+</html>

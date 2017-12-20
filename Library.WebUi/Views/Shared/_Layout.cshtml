@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Library.WebUi.ToolBox 
+@{ 
+    var isLoggedIn = false;
+    if (AuthenticateFunction.GetcurrentMember() != null)
+    {
+        isLoggedIn = true;
+    }
+}
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -9,24 +17,54 @@
     <link href="~/Content/Style.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="http://localhost:9099/Home/Index">کتابخانه</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">کتابخانه</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a href="http://localhost:9099/Home/Index">خانه</a></li>
-                <li><a href="http://localhost:9099/Admin/Books_List">کتابها</a></li>
-                <li><a href="#">ارتباط با ما</a></li>
-                <li><a href="http://localhost:9099/Registering/Register">ثبت نام</a></li>
-                <li><a href="http://localhost:9099/Login/Login">ورود</a></li>
-            </ul>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index", "AdministratorHome", new { Area = "Administrator" })">پنل مدیریت</a></li>
+                    <li><a href="@Url.Action("Create","ContactUs")">ارتباط با ما</a></li>
+                    <li><a href="@Url.Action("Create", "RequestBooks")">درخواست کتاب</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-left">
+                    @if (isLoggedIn)
+                    {
+                        <li><a href="#">@AuthenticateFunction.GetcurrentMember().UserName</a></li>
+                        <li><a href="@Url.Action("Logout", "Login")"><span class="glyphicon glyphicon-log-out">خروج</span></a></li>
+                    }
+                    else
+                    {
+                    <li><a href="@Url.Action("Register", "Registering")"><span class="glyphicon glyphicon-user"></span>ثبت نام</a></li>
+                    <li><a href="@Url.Action("Login", "Login")"><span class="glyphicon glyphicon-log-in"></span>ورود</a></li>
+                    }
+                </ul>
+            </div>
         </div>
-    </nav>
+    </nav> 
+    
+        @if (TempData["Message"] != null)
+            {
+            <div id="Message" class="messagebox">
+                <div class="navbar navbar-default navbar-fixed-bottom">
+                    <div class="text-center">
+                        @TempData["Message"]
+                    </div>
+                </div>
+            </div>
+        }
 
-
+    
     <div>
-        <div class="container">
+        <div id="container-home" class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     @RenderBody()
@@ -36,8 +74,6 @@
         </div>
 
     </div>
-
-
 
                 <script src="~/Scripts/jquery-1.12.4.min.js"></script>
                 <script src="~/Scripts/bootstrap-rtl.min.js"></script>

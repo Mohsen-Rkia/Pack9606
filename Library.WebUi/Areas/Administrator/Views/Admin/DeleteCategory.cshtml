@@ -1,0 +1,22 @@
+﻿@model Library.Model.Category
+
+@{
+    ViewBag.Title = "حذف دسته";
+}
+<div class="panel-heading">
+    <h3 class="panel-title">حذف دسته</h3>
+</div>
+<div class="panel-body">
+    <h3>آیا از حذف این دسته اطمینان دارید</h3>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            <span class="btn btn-primary">@Html.ActionLink("بازگشت", "Category_List", "Admin")</span>
+        </div>
+    }
+</div>

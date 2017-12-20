@@ -9,9 +9,10 @@ namespace Library.WebUi.ViewModels
 {
     public class ForLoginViewModels
     {
-        [Required]
+        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
         public string UserName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "این فیلد نباید خالی باشد")]
         public string Password { get; set; }
+        public bool Rememberme { get; set; }
     }
 }

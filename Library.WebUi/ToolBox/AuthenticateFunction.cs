@@ -6,10 +6,15 @@ using System.Web;
 
 namespace Library.WebUi.ToolBox
 {
-    public static class AuthenticateFunction
+    public class AuthenticateFunction
     {
         public static Member GetcurrentMember()
         {
+            if (HttpContext.Current.Request.Cookies["UserId"] != null)
+            {
+                var userId = Convert.ToInt32(HttpContext.Current.Request.Cookies["UserId"].Value);
+                HttpContext.Current.Session["userId"] = userId;
+            }
             if (HttpContext.Current.Session["UserId"] != null)
             {
                 var userId = Convert.ToInt32(HttpContext.Current.Session["UserId"]);
@@ -20,6 +25,17 @@ namespace Library.WebUi.ToolBox
             else
             {
                 return null;
+            }
+        }
+        public static void Logout ()
+        {
+            HttpContext.Current.Session["UserId"] = null;
+
+            var cookie = HttpContext.Current.Request.Cookies["UserId"];
+            if (cookie != null)
+            {
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                HttpContext.Current.Response.Cookies.Set(cookie);
             }
         }
     }

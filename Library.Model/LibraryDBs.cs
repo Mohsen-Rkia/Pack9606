@@ -12,9 +12,12 @@ namespace Library.Model
            
         }
         public DbSet<Member> Members { get; set; }
-        public DbSet<Books> Books { get; set; }
+        public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Circulations> Circulations { get; set; }
+        public DbSet<Circulation> Circulations { get; set; }
+        public DbSet<Cover> Covers { get; set; }
+        public DbSet<ContactUs> ContactUss { get; set; }
+        public DbSet<RequestBook> RequestBooks { get; set; }
 
     }
 

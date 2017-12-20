@@ -1,0 +1,66 @@
+﻿@model Library.Model.ContactUs
+
+@{
+    ViewBag.Title = "حذف";
+}
+
+<div class="panel-heading">
+    <h3 class="panel-title">حذف</h3>
+</div>
+<style>
+    dl dt{margin:5px;}
+    dl dd {
+        margin: 5px;
+    }
+</style>
+<div class="panel-body">
+
+    <h3>آیا از حذف این پیام اطمینان دارید؟</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmailAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subject)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subject)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MsgText)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MsgText)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                <span class="btn btn-primary">@Html.ActionLink("بازگشت", "Index")</span>
+            </div>
+        }
+    </div>
+</div>

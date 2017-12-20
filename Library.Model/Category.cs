@@ -10,8 +10,10 @@ namespace Library.Model
     public class Category
     {
         public int Id { get; set; }
+        [Display(Name = "نام دسته *")]
         [MaxLength(50),Required]
-        public string Category_Name { get; set; }
-        public List<Books> Books_I { get; set; }
+        public string Name { get; set; }
+        public int BookId { get; set; }
+        public virtual ICollection<Book> Books_I { get; set; }
     }
 }
